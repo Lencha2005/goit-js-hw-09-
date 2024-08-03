@@ -86,11 +86,6 @@ const images = [
 </li>`
   }).join('');
 
-//   const galleryCardTemplate = images.map(img => createGalleryCard(img)).join('');
-//   console.log(galleryCardTemplate);
-
-  
-
   listEl.innerHTML  = createGallery;
 
   new SimpleLightbox('.gallery a', { 
