@@ -4,6 +4,7 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 
+
 const images = [
     {
       preview:
@@ -71,31 +72,30 @@ const images = [
   ];
 
   
-  
-  const createGalleryCard = imgInfo => {
+  const listEl = document.querySelector('.gallery');
+  const createGallery = images.map(({preview, original, description}) => {
     return `
     <li class="gallery-item">
-  <a class="gallery-link" href="${imgInfo.original}">
+  <a class="gallery-link" href="${original}">
     <img
       class="gallery-image"
-      src="${imgInfo.preview}"
-      alt="${imgInfo.description}" self
+      src="${preview}"
+      alt="${description}"
     />
   </a>
 </li>`
-  };
+  }).join('');
 
-  const galleryCardTemplate = images.map(img => createGalleryCard(img)).join('');
+//   const galleryCardTemplate = images.map(img => createGalleryCard(img)).join('');
 //   console.log(galleryCardTemplate);
 
-  const listEl = document.querySelector('.gallery');
+  
 
-  listEl.innerHTML  = galleryCardTemplate;
+  listEl.innerHTML  = createGallery;
 
   new SimpleLightbox('.gallery a', { 
-    captionSelector: 'img',
-    captionType: 'attr',
+    captions: true,
     captionsData: 'alt',
     captionDelay: 250,
-    captionPosition: 'button'
+    overlayOpacity: 0.8
 });
