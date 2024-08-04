@@ -40,6 +40,8 @@ function onFormSubmit(event){
     console.log(formData);
     event.target.reset();
     localStorage.removeItem('feedback-form-state');
+    formData = {email: "", message: ""};
+    console.log(formData);
 };
 feedBackFormEl.addEventListener('input', onFormInput);
 feedBackFormEl.addEventListener('submit', onFormSubmit);
