@@ -35,7 +35,8 @@ function onFormSubmit(event){
     const message = feedBackFormEl.elements['message'].value.trim();
     
     if(!email || !message){
-        alert('Fill please all fields')
+        alert('Fill please all fields');
+        return;
     };
     console.log(formData);
     event.target.reset();
